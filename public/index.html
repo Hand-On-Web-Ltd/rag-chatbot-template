@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG Chatbot</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f; color: #fff; min-height: 100vh;
+    }
+    .app { max-width: 700px; margin: 0 auto; padding: 2rem; }
+    h1 { margin-bottom: 0.5rem; }
+    .subtitle { color: #888; margin-bottom: 2rem; }
+
+    .upload-area {
+      border: 2px dashed #333; border-radius: 8px;
+      padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;
+    }
+    .upload-area input[type="file"] { margin-bottom: 0.5rem; }
+    .upload-area button {
+      background: #10a37f; color: white; border: none;
+      padding: 0.5rem 1.5rem; border-radius: 6px; cursor: pointer;
+      font-size: 0.9rem;
+    }
+    #uploadStatus { margin-top: 0.5rem; color: #888; font-size: 0.85rem; }
+
+    .chat { margin-top: 1rem; }
+    #messages {
+      min-height: 200px; max-height: 400px; overflow-y: auto;
+      border: 1px solid #222; border-radius: 8px; padding: 1rem;
+      margin-bottom: 1rem; background: #1a1a1a;
+    }
+    .msg { padding: 0.5rem 0; }
+    .msg.user { color: #10a37f; }
+    .msg.bot { color: #ddd; }
+    .msg .sources { font-size: 0.75rem; color: #666; margin-top: 0.3rem; }
+
+    .input-row { display: flex; gap: 0.5rem; }
+    .input-row input {
+      flex: 1; padding: 0.7rem; border-radius: 6px;
+      border: 1px solid #333; background: #1a1a1a; color: #fff;
+      font-size: 0.95rem;
+    }
+    .input-row button {
+      background: #10a37f; color: white; border: none;
+      padding: 0.7rem 1.5rem; border-radius: 6px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>📄 RAG Chatbot</h1>
+    <p class="subtitle">Upload a document, then ask questions about it</p>
+
+    <div class="upload-area">
+      <input type="file" id="fileInput" accept=".txt,.md,.csv">
+      <button onclick="uploadFile()">Upload</button>
+      <div id="uploadStatus"></div>
+    </div>
+
+    <div class="chat">
+      <div id="messages"></div>
+      <div class="input-row">
+        <input type="text" id="questionInput" placeholder="Ask a question about your document..." onkeydown="if(event.key==='Enter')askQuestion()">
+        <button onclick="askQuestion()">Ask</button>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
