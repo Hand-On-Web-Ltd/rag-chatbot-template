@@ -1,0 +1,27 @@
+{
+  "name": "@hand-on-web/rag-chatbot-template",
+  "version": "1.0.0",
+  "description": "RAG chatbot template with document upload and question answering",
+  "main": "server.js",
+  "homepage": "https://www.handonweb.com",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "rag",
+    "chatbot",
+    "openai",
+    "embeddings",
+    "nodejs",
+    "document-qa"
+  ],
+  "author": "Hand On Web Ltd <outreach@handonweb.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.77.0"
+  }
+}
